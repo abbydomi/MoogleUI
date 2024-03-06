@@ -31,7 +31,7 @@ class CharacterViewModel {
     func getCharacter() {
         Task {
             self.characters = await characterDataManager.getCharacter() ?? []
-            print(self.characters)
+            state.send(.success(characters))
         }
     }
 }
@@ -40,6 +40,6 @@ class CharacterViewModel {
 
 enum CharacterState {
     case loading
-    case success
+    case success([Character])
     case failure
 }

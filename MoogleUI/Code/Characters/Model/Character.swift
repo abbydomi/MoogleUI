@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Character
 
-struct Character: Codable {
+struct Character: Codable, Identifiable {
     let id, name: String
     let japaneseName: String?
     let age: String
