@@ -7,18 +7,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CharacterView: View {
+    // MARK: - Properties
+    
+    private let viewModel = CharacterViewModel()
+    
+    // MARK: - View
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Moogle!")
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    CharacterView()
 }
