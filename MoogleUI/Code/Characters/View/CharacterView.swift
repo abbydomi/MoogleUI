@@ -25,10 +25,20 @@ struct CharacterView: View {
                 LazyVStack {
                     ForEach(characters) { character in
                         HStack {
+                            AsyncImage(url: URL(string: character.pictures.first?.url ?? "")) { image in
+                                image
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            } placeholder: {
+                                ProgressView()
+                                    .frame(width: 30, height: 30)
+                                    .scaledToFit()
+                            }
                             Text("- \(character.name)")
-                                .padding(.horizontal)
                             Spacer()
                         }
+                        .padding(.horizontal)
                     }
                 }
             }
