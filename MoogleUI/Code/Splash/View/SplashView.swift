@@ -16,17 +16,28 @@ struct SplashView: View {
     @State private var isConnected = false
     @State private var isAlertShown = false
     @State private var cancellables = Set<AnyCancellable>()
+    @State private var isNext = false
     
     // MARK: - View
     var body: some View {
-        ZStack {
-            
-        }
-        .onAppear(perform: bind)
-        .alert("Error", isPresented: $isAlertShown) {
-            
-        } message: {
-            Text("alertMessage")
+        NavigationStack {
+            ZStack {
+                VStack {
+                    Text("MoogleUI")
+                        .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                    ProgressView()
+                        .controlSize(.extraLarge)
+                }
+            }
+            //.onAppear(perform: bind)
+            // TODO: Better alerts
+            .alert("Error", isPresented: $isAlertShown) {
+            } message: {
+                Text("alertMessage")
+            }
+            .navigationDestination(isPresented: $isNext) {
+                CharacterView()
+            }
         }
     }
 }
@@ -44,7 +55,7 @@ private extension SplashView {
     func handle(_ value: Bool) {
         isConnected = value
         if isConnected {
-            
+            isNext = true
         } else {
             isAlertShown = true
         }
