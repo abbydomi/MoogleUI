@@ -21,14 +21,29 @@ struct SplashView: View {
     // MARK: - View
     var body: some View {
         NavigationStack {
-            ZStack {
-                VStack {
-                    Text("MoogleUI")
-                        .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                    ProgressView()
-                        .controlSize(.extraLarge)
+            VStack {
+                ZStack {
+                    Color.moogle.background
+                        .ignoresSafeArea()
+                    Circle()
+                        .padding()
+                        .foregroundStyle(Color.moogle.secondary)
+                    Image("moogle")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(70)
                 }
+                ZStack {
+                    Color.moogle.secondary
+                        .ignoresSafeArea()
+                        .frame(height: 60)
+                    ProgressView()
+                        .controlSize(.large)
+                        .padding(.top)
+                }
+                .padding(-20)
             }
+            
             //.onAppear(perform: bind)
             // TODO: Better alerts
             .alert("Error", isPresented: $isAlertShown) {
