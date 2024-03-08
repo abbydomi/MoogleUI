@@ -29,9 +29,23 @@ class CharacterViewModel {
     }
     
     func getCharacter() {
+        // TODO: Localization
         Task {
-            self.characters = await characterDataManager.getCharacter() ?? []
-            state.send(.success(characters))
+            do {
+                try self.characters = await characterDataManager.getCharacter() ?? []
+                state.send(.success(characters))
+            } catch MoogleError.badResponse {
+                state.send(.failure(("400 - Bad response")))
+            } catch MoogleError.notFound {
+                state.send(.failure(("404 - Not Found")))
+            } catch MoogleError.serviceDown {
+                state.send(.failure(("522 - Bad response")))
+            } catch MoogleError.unkownError {
+                state.send(.failure(("An Unknown error ocurred")))
+            } catch {
+                
+            }
+            
         }
     }
 }
@@ -41,5 +55,5 @@ class CharacterViewModel {
 enum CharacterState {
     case loading
     case success([Character])
-    case failure
+    case failure(String)
 }
