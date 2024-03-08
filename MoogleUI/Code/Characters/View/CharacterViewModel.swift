@@ -13,7 +13,7 @@ class CharacterViewModel {
     // MARK: - Properties
     
     private let state: CurrentValueSubject<CharacterState, Never> = .init(.loading)
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     private let characterDataManager = CharacterDataManager()
     private var characters: [Character] = []

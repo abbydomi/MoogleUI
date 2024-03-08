@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		285C188F2B9B484900CC4310 /* MoogleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C188E2B9B484900CC4310 /* MoogleError.swift */; };
 		285C18912B9B680400CC4310 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C18902B9B680400CC4310 /* NetworkMonitor.swift */; };
+		285C18952B9B69B400CC4310 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C18942B9B69B400CC4310 /* SplashView.swift */; };
 		28C555052B98F8DC0003D214 /* MoogleUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C555042B98F8DC0003D214 /* MoogleUIApp.swift */; };
 		28C555072B98F8DC0003D214 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C555062B98F8DC0003D214 /* CharacterView.swift */; };
 		28C555092B98F8DD0003D214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C555082B98F8DD0003D214 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		285C188E2B9B484900CC4310 /* MoogleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoogleError.swift; sourceTree = "<group>"; };
 		285C18902B9B680400CC4310 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		285C18942B9B69B400CC4310 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		28C555012B98F8DC0003D214 /* MoogleUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoogleUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28C555042B98F8DC0003D214 /* MoogleUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoogleUIApp.swift; sourceTree = "<group>"; };
 		28C555062B98F8DC0003D214 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
@@ -48,6 +50,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		285C18922B9B699F00CC4310 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				285C18932B9B69A700CC4310 /* View */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		285C18932B9B69A700CC4310 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				285C18942B9B69B400CC4310 /* SplashView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		28C554F82B98F8DC0003D214 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +104,7 @@
 		28C555122B98F8E70003D214 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				285C18922B9B699F00CC4310 /* Splash */,
 				28C555182B98FA1B0003D214 /* Characters */,
 				28C555172B98FA050003D214 /* Network */,
 				28C555132B98F8FE0003D214 /* Config */,
@@ -232,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28C5551C2B98FB000003D214 /* BaseAPIClient.swift in Sources */,
+				285C18952B9B69B400CC4310 /* SplashView.swift in Sources */,
 				28C555072B98F8DC0003D214 /* CharacterView.swift in Sources */,
 				28C555152B98F9110003D214 /* Environment.swift in Sources */,
 				28C5551E2B98FBCB0003D214 /* CharacterAPIClient.swift in Sources */,
