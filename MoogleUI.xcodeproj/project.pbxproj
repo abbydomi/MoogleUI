@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285C188F2B9B484900CC4310 /* MoogleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C188E2B9B484900CC4310 /* MoogleError.swift */; };
 		28C555052B98F8DC0003D214 /* MoogleUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C555042B98F8DC0003D214 /* MoogleUIApp.swift */; };
 		28C555072B98F8DC0003D214 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C555062B98F8DC0003D214 /* CharacterView.swift */; };
 		28C555092B98F8DD0003D214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C555082B98F8DD0003D214 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		285C188E2B9B484900CC4310 /* MoogleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoogleError.swift; sourceTree = "<group>"; };
 		28C555012B98F8DC0003D214 /* MoogleUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoogleUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28C555042B98F8DC0003D214 /* MoogleUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoogleUIApp.swift; sourceTree = "<group>"; };
 		28C555062B98F8DC0003D214 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				28C5551B2B98FB000003D214 /* BaseAPIClient.swift */,
+				285C188E2B9B484900CC4310 /* MoogleError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				28C555072B98F8DC0003D214 /* CharacterView.swift in Sources */,
 				28C555152B98F9110003D214 /* Environment.swift in Sources */,
 				28C5551E2B98FBCB0003D214 /* CharacterAPIClient.swift in Sources */,
+				285C188F2B9B484900CC4310 /* MoogleError.swift in Sources */,
 				28C555242B98FCDC0003D214 /* CharacterViewModel.swift in Sources */,
 				28C555202B98FC310003D214 /* CharacterDataManager.swift in Sources */,
 				28C555052B98F8DC0003D214 /* MoogleUIApp.swift in Sources */,

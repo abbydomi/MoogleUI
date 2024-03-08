@@ -13,8 +13,8 @@ class BaseAPIClient {
         if let url = URL(string: Environment.shared.baseURL) {
             return url
         } else {
-            // TODO: Proper error handling
-            fatalError()
+            print("URL Invalid")
+            return URL(string: "")!
         }
     }
     
@@ -23,7 +23,7 @@ class BaseAPIClient {
         let (data, response) = try await URLSession.shared.data(from: urlAbsolute)
         
         guard let response = response as? HTTPURLResponse else {
-            fatalError()
+            throw MoogleError.badResponse
         }
         
         if response.statusCode == 200 {
@@ -31,12 +31,12 @@ class BaseAPIClient {
         }
         
         switch response.statusCode {
-        case 522: //Service is down
-            fatalError()
-        case 404: //Not found
-            fatalError()
-        default: //Unknown error
-            fatalError()
+        case 522:
+            throw MoogleError.serviceDown
+        case 404:
+            throw MoogleError.notFound
+        default:
+            throw MoogleError.unkownError
         }
     }
 }
