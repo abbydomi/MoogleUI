@@ -23,14 +23,20 @@ class CharacterDataManager {
     
     // MARK: - Public Methods
     
-    func getCharacter() async -> [Character]? {
+    func getCharacter() async throws -> [Character]? {
         do {
             let decoder = JSONDecoder()
             return try await decoder.decode([Character].self, from: characterApiClient.getCharacter())
+        } catch MoogleError.badResponse {
+            throw MoogleError.badResponse
+        } catch MoogleError.notFound {
+            throw MoogleError.notFound
+        } catch MoogleError.serviceDown {
+            throw MoogleError.serviceDown
+        } catch MoogleError.unkownError {
+            throw MoogleError.unkownError
         } catch {
-            // TODO: Proper error handling
-            print(error.localizedDescription)
-            return nil
+            throw MoogleError.unkownError
         }
     }
 }

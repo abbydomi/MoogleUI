@@ -14,6 +14,8 @@ struct CharacterView: View {
     private let viewModel = CharacterViewModel()
     @State var cancellables = Set<AnyCancellable>()
     @State private var characters: [Character] = []
+    @State private var alertMessage: String = ""
+    @State private var isAlertShown: Bool = false
     
     // MARK: - View
     
@@ -46,6 +48,13 @@ struct CharacterView: View {
         .onAppear {
             responseViewModel()
         }
+        // TODO: Better alerts
+        .alert("hi", isPresented: $isAlertShown) {
+            
+        } message: {
+            Text(alertMessage)
+        }
+
     }
     
     // MARK: - Private methods
@@ -58,8 +67,9 @@ struct CharacterView: View {
                    break
                 case .success(let characters):
                     self.characters = characters
-                case .failure:
-                    break
+                case .failure(let error):
+                    self.alertMessage = error
+                    self.isAlertShown = true
                 }
             })
             .store(in: &cancellables)
