@@ -11,7 +11,7 @@ import SwiftUI
 struct MoogleUIApp: App {
     var body: some Scene {
         WindowGroup {
-            CharacterView().environmentObject(NetworkMonitor())
+            SplashView().environmentObject(NetworkMonitor())
         }
     }
 }
