@@ -23,6 +23,7 @@ struct CharacterView: View {
         VStack {
             Text("MoogleUI")
                 .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                .foregroundStyle(Color.moogle.text)
             ScrollView {
                 LazyVStack {
                     ForEach(characters) { character in
@@ -32,18 +33,27 @@ struct CharacterView: View {
                                     .resizable()
                                     .frame(width: 30, height: 30)
                                     .scaledToFit()
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
                             } placeholder: {
                                 ProgressView()
                                     .frame(width: 30, height: 30)
                                     .scaledToFit()
+                                    .progressViewStyle(CircularProgressViewStyle(tint: Color.moogle.accent))
                             }
                             Text("- \(character.name)")
+                                .foregroundStyle(Color.moogle.text)
                             Spacer()
                         }
+                        .padding()
+                        .gradientRadius()
                         .padding(.horizontal)
                     }
                 }
             }
+        }
+        .background {
+            Color.moogle.background
+                .ignoresSafeArea()
         }
         .onAppear {
             responseViewModel()
