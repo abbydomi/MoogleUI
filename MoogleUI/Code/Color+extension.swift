@@ -13,7 +13,9 @@ extension Color {
     
     struct MoogleColor {
         let background = Color("ColorBG")
-        let secondary = Color("ColorSecondary")
+        let dark = Color("ColorDark")
+        let light = Color("ColorLight")
+        let accent = Color("AccentColor")
         let text = Color("ColorText")
     }
 }
