@@ -67,18 +67,6 @@ private extension SplashView {
             isAlertShown = true
         }
     }
-    /*networMonitor.$isConnected.sink { value in
-        handle(value)
-    }
-    .store(in: &cancellables)
-    func handle(_ value: Bool) {
-        isConnected = value
-        if isConnected {
-            isNext = true
-        } else {
-            isAlertShown = true
-        }
-    }*/
 }
 
 // MARK: - Previews
