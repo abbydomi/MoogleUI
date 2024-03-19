@@ -10,6 +10,9 @@
 		285953CD2BA9EE7B0097BF27 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953CC2BA9EE7B0097BF27 /* HomeView.swift */; };
 		285953CF2BA9F02C0097BF27 /* SwitftUIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953CE2BA9F02C0097BF27 /* SwitftUIStyles.swift */; };
 		285953D12BA9F42A0097BF27 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953D02BA9F42A0097BF27 /* SplashViewModel.swift */; };
+		285953D52BA9FDC30097BF27 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953D42BA9FDC30097BF27 /* Game.swift */; };
+		285953D72BA9FE8C0097BF27 /* GameAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953D62BA9FE8C0097BF27 /* GameAPIClient.swift */; };
+		285953D92BA9FEED0097BF27 /* GameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953D82BA9FEED0097BF27 /* GameDataManager.swift */; };
 		285C188F2B9B484900CC4310 /* MoogleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C188E2B9B484900CC4310 /* MoogleError.swift */; };
 		285C18912B9B680400CC4310 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C18902B9B680400CC4310 /* NetworkMonitor.swift */; };
 		285C18952B9B69B400CC4310 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C18942B9B69B400CC4310 /* SplashView.swift */; };
@@ -30,6 +33,9 @@
 		285953CC2BA9EE7B0097BF27 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		285953CE2BA9F02C0097BF27 /* SwitftUIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitftUIStyles.swift; sourceTree = "<group>"; };
 		285953D02BA9F42A0097BF27 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		285953D42BA9FDC30097BF27 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		285953D62BA9FE8C0097BF27 /* GameAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAPIClient.swift; sourceTree = "<group>"; };
+		285953D82BA9FEED0097BF27 /* GameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataManager.swift; sourceTree = "<group>"; };
 		285C188E2B9B484900CC4310 /* MoogleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoogleError.swift; sourceTree = "<group>"; };
 		285C18902B9B680400CC4310 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		285C18942B9B69B400CC4310 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -64,6 +70,24 @@
 				285953CC2BA9EE7B0097BF27 /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		285953D22BA9FDAF0097BF27 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				285953D32BA9FDBB0097BF27 /* Model */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		285953D32BA9FDBB0097BF27 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				285953D42BA9FDC30097BF27 /* Game.swift */,
+				285953D62BA9FE8C0097BF27 /* GameAPIClient.swift */,
+				285953D82BA9FEED0097BF27 /* GameDataManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		285C18922B9B699F00CC4310 /* Splash */ = {
@@ -123,6 +147,7 @@
 			children = (
 				285C18922B9B699F00CC4310 /* Splash */,
 				285953CB2BA9EE690097BF27 /* Home */,
+				285953D22BA9FDAF0097BF27 /* Games */,
 				28C555182B98FA1B0003D214 /* Characters */,
 				28C555172B98FA050003D214 /* Network */,
 				28C555132B98F8FE0003D214 /* Config */,
@@ -272,6 +297,7 @@
 			files = (
 				285953D12BA9F42A0097BF27 /* SplashViewModel.swift in Sources */,
 				28C5551C2B98FB000003D214 /* BaseAPIClient.swift in Sources */,
+				285953D72BA9FE8C0097BF27 /* GameAPIClient.swift in Sources */,
 				285C18952B9B69B400CC4310 /* SplashView.swift in Sources */,
 				285953CD2BA9EE7B0097BF27 /* HomeView.swift in Sources */,
 				28C555072B98F8DC0003D214 /* CharacterView.swift in Sources */,
@@ -280,11 +306,13 @@
 				285953CF2BA9F02C0097BF27 /* SwitftUIStyles.swift in Sources */,
 				285C188F2B9B484900CC4310 /* MoogleError.swift in Sources */,
 				28C555242B98FCDC0003D214 /* CharacterViewModel.swift in Sources */,
+				285953D92BA9FEED0097BF27 /* GameDataManager.swift in Sources */,
 				285C18972B9B713900CC4310 /* Color+extension.swift in Sources */,
 				28C555202B98FC310003D214 /* CharacterDataManager.swift in Sources */,
 				285C18912B9B680400CC4310 /* NetworkMonitor.swift in Sources */,
 				28C555052B98F8DC0003D214 /* MoogleUIApp.swift in Sources */,
 				28C5551A2B98FAC80003D214 /* Character.swift in Sources */,
+				285953D52BA9FDC30097BF27 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
