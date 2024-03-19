@@ -1,39 +1,48 @@
 //
-//  CharacterViewModel.swift
+//  SplashViewModel.swift
 //  MoogleUI
 //
-//  Created by Abby Dominguez on 6/3/24.
+//  Created by Abby Dominguez on 19/3/24.
 //
 
 import Foundation
 import Combine
 
-class CharacterViewModel {
-    
+class SplashViewModel {
     // MARK: - Properties
     
-    private let state: CurrentValueSubject<CharacterState, Never> = .init(.loading)
+    private let state: CurrentValueSubject<SplashState, Never> = .init(.loading)
     private var cancellables = Set<AnyCancellable>()
-    
+    private var character: Character?
     private let characterDataManager = CharacterDataManager()
-    private var characters: [Character] = []
     
+    var networkMonitor: NetworkMonitor?
+
     // MARK: - Lifecycle
     
-    init() {
-        self.getCharacter()
+    init(networkMonitor: NetworkMonitor) {
+        self.networkMonitor = networkMonitor
+        bindToNetworkMonitor()
     }
     
-    func getState() -> AnyPublisher<CharacterState, Never> {
+    func getState() -> AnyPublisher<SplashState, Never> {
         state.eraseToAnyPublisher()
     }
     
-    func getCharacter() {
-        // TODO: Localization
+    func bindToNetworkMonitor() {
+        networkMonitor?.$isConnected.sink { value in
+            if value == true {
+                self.getAPIStatus()
+            }
+        }
+        .store(in: &cancellables)
+    }
+    
+    func getAPIStatus() {
         Task {
             do {
-                try self.characters = await characterDataManager.getCharacter() ?? []
-                state.send(.success(characters))
+                try await self.character = characterDataManager.getCharacter()?.first
+                state.send(.success(character))
             } catch MoogleError.badResponse {
                 state.send(.failure(("400 - Bad response")))
             } catch MoogleError.notFound {
@@ -45,15 +54,12 @@ class CharacterViewModel {
             } catch {
                 state.send(.failure(("An Unknown error ocurred")))
             }
-            
         }
     }
 }
 
-// MARK: - State
-
-enum CharacterState {
+enum SplashState {
     case loading
-    case success([Character])
+    case success(Character?)
     case failure(String)
 }

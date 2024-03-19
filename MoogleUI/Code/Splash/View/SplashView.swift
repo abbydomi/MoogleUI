@@ -13,6 +13,8 @@ struct SplashView: View {
     // MARK: - Properties
     
     @EnvironmentObject private var networMonitor: NetworkMonitor
+    @State private var viewModel: SplashViewModel?
+    
     @State private var isConnected = false
     @State private var isAlertShown = false
     @State private var cancellables = Set<AnyCancellable>()
@@ -32,14 +34,14 @@ struct SplashView: View {
                     .scaledToFit()
                     .padding(70)
             }
-            //.onAppear(perform: bind)
+            .onAppear(perform: bind)
             // TODO: Better alerts
             .alert("Error", isPresented: $isAlertShown) {
             } message: {
                 Text("alertMessage")
             }
             .navigationDestination(isPresented: $isNext) {
-                CharacterView()
+                HomeView()
             }
         }
     }
@@ -49,12 +51,26 @@ struct SplashView: View {
 
 private extension SplashView {
     func bind() {
-        networMonitor.$isConnected.sink { value in
-            handle(value)
+        viewModel = SplashViewModel(networkMonitor: networMonitor)
+        viewModel?.getState().sink { state in
+            handle(state)
         }
         .store(in: &cancellables)
     }
     
+    func handle(_ state: SplashState) {
+        switch state {
+        case .loading: break
+        case .success:
+            self.isNext = true
+        case .failure(let alert):
+            isAlertShown = true
+        }
+    }
+    /*networMonitor.$isConnected.sink { value in
+        handle(value)
+    }
+    .store(in: &cancellables)
     func handle(_ value: Bool) {
         isConnected = value
         if isConnected {
@@ -62,7 +78,7 @@ private extension SplashView {
         } else {
             isAlertShown = true
         }
-    }
+    }*/
 }
 
 // MARK: - Previews

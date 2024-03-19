@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		285953CD2BA9EE7B0097BF27 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953CC2BA9EE7B0097BF27 /* HomeView.swift */; };
 		285953CF2BA9F02C0097BF27 /* SwitftUIStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953CE2BA9F02C0097BF27 /* SwitftUIStyles.swift */; };
+		285953D12BA9F42A0097BF27 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285953D02BA9F42A0097BF27 /* SplashViewModel.swift */; };
 		285C188F2B9B484900CC4310 /* MoogleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C188E2B9B484900CC4310 /* MoogleError.swift */; };
 		285C18912B9B680400CC4310 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C18902B9B680400CC4310 /* NetworkMonitor.swift */; };
 		285C18952B9B69B400CC4310 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C18942B9B69B400CC4310 /* SplashView.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		285953CC2BA9EE7B0097BF27 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		285953CE2BA9F02C0097BF27 /* SwitftUIStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitftUIStyles.swift; sourceTree = "<group>"; };
+		285953D02BA9F42A0097BF27 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		285C188E2B9B484900CC4310 /* MoogleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoogleError.swift; sourceTree = "<group>"; };
 		285C18902B9B680400CC4310 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		285C18942B9B69B400CC4310 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				285C18942B9B69B400CC4310 /* SplashView.swift */,
+				285953D02BA9F42A0097BF27 /* SplashViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285953D12BA9F42A0097BF27 /* SplashViewModel.swift in Sources */,
 				28C5551C2B98FB000003D214 /* BaseAPIClient.swift in Sources */,
 				285C18952B9B69B400CC4310 /* SplashView.swift in Sources */,
 				285953CD2BA9EE7B0097BF27 /* HomeView.swift in Sources */,

@@ -15,6 +15,7 @@ struct HomeView: View {
                 .padding()
         }
         .gradientRadius()
+        .navigationBarBackButtonHidden()
     }
 }
 
