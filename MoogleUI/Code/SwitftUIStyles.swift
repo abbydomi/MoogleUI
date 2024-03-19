@@ -21,5 +21,10 @@ extension View {
                 .stroke(Gradient(colors: [Color.moogle.light, Color.moogle.background]), lineWidth: 1)
         )
     }
+    
+    func titleStyle() -> some View {
+        self
+        .font(.system(.largeTitle, design: .rounded, weight: .bold))
+        .foregroundStyle(Color.moogle.text)
+    }
 }
-

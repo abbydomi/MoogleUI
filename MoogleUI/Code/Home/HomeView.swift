@@ -10,12 +10,29 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .foregroundStyle(Color.moogle.text)
-                .padding()
+            Text("MoogleUI") // TODO: Localization
+                .titleStyle()
+            Spacer()
+            GameCarousell()
         }
-        .gradientRadius()
-        .navigationBarBackButtonHidden()
+        .background {
+            Color.moogle.background
+                .ignoresSafeArea()
+        }
+    }
+}
+
+// MARK: - Games carousel
+
+struct GameCarousell: View {
+    var body: some View {
+        HStack {
+            Text("Games")
+                .foregroundStyle(Color.moogle.text)
+                .font(.title2)
+            Spacer()
+        }
+        .padding(20)
     }
 }
 
