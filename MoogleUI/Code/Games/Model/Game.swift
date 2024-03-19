@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Game: Codable {
-    let gameID, title: String
+struct Game: Codable, Identifiable {
+    let id, title: String
     let picture: String
     let platform, releaseDate, description: String
 
     enum CodingKeys: String, CodingKey {
-        case gameID = "gameId"
+        case id = "gameId"
         case title, picture, platform, releaseDate, description
     }
 }

@@ -1,44 +1,44 @@
 //
-//  CharacterViewModel.swift
+//  HomeViewModel.swift
 //  MoogleUI
 //
-//  Created by Abby Dominguez on 6/3/24.
+//  Created by Abby Dominguez on 19/3/24.
 //
 
 import Foundation
 import Combine
 
-class CharacterViewModel {
+class HomeViewModel {
     
     // MARK: - Properties
     
-    private let state: CurrentValueSubject<CharacterState, Never> = .init(.loading)
+    private let state: CurrentValueSubject<HomeState, Never>  = .init(.loading)
     private var cancellables = Set<AnyCancellable>()
     
-    private let characterDataManager = CharacterDataManager()
-    private var characters: [Character] = []
+    private let gameDataManager = GameDataManager()
+    private var games: [Game] = []
     
     // MARK: - Lifecycle
     
     init() {
-        self.getCharacter()
+        self.getGames()
     }
     
-    func getState() -> AnyPublisher<CharacterState, Never> {
+    func getState() -> AnyPublisher<HomeState, Never> {
         state.eraseToAnyPublisher()
     }
 }
 
-// MARK: - Private Methods
+// MARK: Private Methods
 
-private extension CharacterViewModel {
+private extension HomeViewModel {
     
-    func getCharacter() {
+    func getGames() {
         // TODO: Localization
         Task {
             do {
-                try self.characters = await characterDataManager.getCharacter() ?? []
-                state.send(.success(characters))
+                try self.games = await gameDataManager.getGames() ?? []
+                state.send(.success(games))
             } catch MoogleError.badResponse {
                 state.send(.failure(("400 - Bad response")))
             } catch MoogleError.notFound {
@@ -55,10 +55,8 @@ private extension CharacterViewModel {
     }
 }
 
-// MARK: - State
-
-enum CharacterState {
+enum HomeState {
     case loading
-    case success([Character])
+    case success([Game])
     case failure(String)
 }
